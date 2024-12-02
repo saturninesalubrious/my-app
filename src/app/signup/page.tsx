@@ -30,7 +30,7 @@ const router = useRouter();
  const onSignup = async () => {
   try{
    setLoading(true);
-   const response =  await axios.post("/singup", {user});
+   const response =  await axios.post("/api/users/singup", user);
    console.log("Sign up success", response.data);
    router.push("/login");
 
