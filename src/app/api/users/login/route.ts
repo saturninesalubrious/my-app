@@ -4,6 +4,12 @@ import { NextRequest,NextResponse } from "next/server";
 import bcryptjs from "bcryptjs";
 import jwt from "jsonwebtoken";
 
+export type TokenPayload =  {
+ id: string;
+ username: string;
+ email: string;   
+}
+
 
 connect();
 
@@ -31,7 +37,7 @@ export async function POST(request: NextRequest){
 
   //create token data
 
-  const tokenData = {
+  const tokenData: TokenPayload = {
    id: user._id,
    username: user.username,
    email: user.email
@@ -52,7 +58,7 @@ export async function POST(request: NextRequest){
   })
 
   return response;
-  
+
 
 
  } catch (error: any) {
